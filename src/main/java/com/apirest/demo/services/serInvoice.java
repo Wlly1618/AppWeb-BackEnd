@@ -6,27 +6,27 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.apirest.demo.models.others.Client;
-import com.apirest.demo.repositories.repClient;
+import com.apirest.demo.models.forTasks.Invoice;
+import com.apirest.demo.repositories.repInvoice;
 
 @Service
-public class serClient {
-    
-    @Autowired private repClient rep;
+public class serInvoice {
+    @Autowired
+    private repInvoice rep;
 
-    public Client saveClient(Client client) {
-        return rep.save(client);
+    public Invoice saveInvoice(Invoice invoice) {
+        return rep.save(invoice);
     }
 
-    public List<Client> getListClients() {
-        return (List<Client>) rep.findAll();
+    public List<Invoice> getListInvoices() {
+        return (List<Invoice>) rep.findAll();
     }
 
-    public Optional<Client> getClient(int id) {
+    public Optional<Invoice> getInvoice(int id) {
         return rep.findById(id);
     }
 
-    public boolean deleteClient(int id) {
+    public boolean deleteInvoice(int id) {
         try {
             rep.deleteById(id);
             return true;
